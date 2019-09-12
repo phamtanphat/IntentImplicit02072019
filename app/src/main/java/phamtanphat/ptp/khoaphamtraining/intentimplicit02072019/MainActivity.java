@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
                         MainActivity.this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                         Request_Code_Gallery);
+
             }
         });
     }
@@ -111,4 +112,5 @@ public class MainActivity extends AppCompatActivity {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
+
 }
