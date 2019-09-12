@@ -30,5 +30,4 @@ public class MainViewModel implements LifecycleObserver{
         mBitmap = null;
     }
 
-
 }
