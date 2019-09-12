@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         btnCamera = findViewById(R.id.buttonCamera);
         btnGallery = findViewById(R.id.buttonGallery);
 
-        mainViewModel.mBitmap.observe(this, new Observer<Bitmap>() {
+        mainViewModel.mBitmap.observe(MainActivity.this, new Observer<Bitmap>() {
             @Override
             public void onChanged(Bitmap bitmap) {
                 if (bitmap != null){

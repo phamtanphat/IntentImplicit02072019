@@ -2,6 +2,7 @@ package phamtanphat.ptp.khoaphamtraining.intentimplicit02072019;
 
 import android.database.Observable;
 import android.graphics.Bitmap;
+import android.util.Log;
 
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -9,8 +10,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.OnLifecycleEvent;
 
-public class MainViewModel implements LifecycleObserver {
-
+public class MainViewModel implements LifecycleObserver{
     public MainViewModel() {
 
     }
@@ -18,14 +18,17 @@ public class MainViewModel implements LifecycleObserver {
     public void setmBitmap(Bitmap bitmap){
         mBitmap.setValue(bitmap);
     }
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+    public void createMutableliveData(){
+        if (mBitmap == null){
+            mBitmap = new MutableLiveData<>();
+        }
+    }
 
-//    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-//    public void createMutableliveData(){
-//        mBitmap = new MutableLiveData<>();
-//    }
-//
-//    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-//    public void destroyMutableliveData(){
-//        mBitmap = null;
-//    }
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    public void destroyMutableliveData(){
+        mBitmap = null;
+    }
+
+
 }
